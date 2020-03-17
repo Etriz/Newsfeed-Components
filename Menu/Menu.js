@@ -30,19 +30,23 @@ const createMenu = menuList => {
   // create elements
   const nav = document.createElement("div");
   const linkBar = document.createElement("ul");
-
+  // add class
   nav.classList.add("menu");
-
+  // create link list from array
   menuList.forEach(item => {
     const link = document.createElement("li");
     link.textContent = item;
     linkBar.appendChild(link);
   });
-
+  // display children
   nav.appendChild(linkBar);
 
   return nav;
 };
 const menu = document.querySelector(".header");
-menu.style.background = "#ec3944";
 menu.prepend(createMenu(menuItems));
+const menuBtn = document.querySelector(".menu-button");
+menuBtn.addEventListener("click", () => {
+  const nav = document.querySelector(".menu");
+  nav.classList.toggle("menu--open");
+});

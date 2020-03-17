@@ -141,7 +141,7 @@ const createArticle = (
   // append
   article.append(title, date, p1, p2, p3, span);
   // add classes
-  article.classList.add("article", "article-open");
+  article.classList.add("article");
   date.classList.add("date");
   span.classList.add("expandButton");
   // add content
@@ -150,9 +150,13 @@ const createArticle = (
   p1.textContent = firstParagraph;
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
+  span.textContent = "More";
 
   const expandItem = () => {
     article.classList.toggle("article-open");
+    if (span.textContent === "Close") {
+      span.textContent = "More";
+    } else span.textContent = "Close";
   };
   span.addEventListener("click", expandItem);
   return article;
