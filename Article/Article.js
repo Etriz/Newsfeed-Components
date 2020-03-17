@@ -86,6 +86,16 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    title: "A Great Article",
+    date: "Today",
+    firstParagraph:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi expedita dolores aperiam doloremque earum autem doloribus magnam perspiciatis quasi fugiat id, maiores inventore consequuntur dolore.",
+    secondParagraph:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi expedita dolores aperiam doloremque earum autem doloribus magnam perspiciatis quasi fugiat id, maiores inventore consequuntur dolore.",
+    thirdParagraph:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi expedita dolores aperiam doloremque earum autem doloribus magnam perspiciatis quasi fugiat id, maiores inventore consequuntur dolore.",
+  },
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -131,7 +141,7 @@ const createArticle = (
   // append
   article.append(title, date, p1, p2, p3, span);
   // add classes
-  article.classList.add("article");
+  article.classList.add("article", "article-open");
   date.classList.add("date");
   span.classList.add("expandButton");
   // add content
@@ -140,4 +150,24 @@ const createArticle = (
   p1.textContent = firstParagraph;
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
+
+  const expandItem = () => {
+    article.classList.toggle("article-open");
+  };
+  span.addEventListener("click", expandItem);
+  return article;
 };
+
+const articles = document.querySelector(".articles");
+// articles.append(createArticle("title", "date", "test", "test", "test"));
+data.forEach(item => {
+  articles.appendChild(
+    createArticle(
+      item.title,
+      item.date,
+      item.firstParagraph,
+      item.secondParagraph,
+      item.thirdParagraph
+    )
+  );
+});
