@@ -150,13 +150,13 @@ const createArticle = (
   p1.textContent = firstParagraph;
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
-  span.textContent = "More";
+  span.textContent = "Click to Expand";
 
   const expandItem = () => {
     article.classList.toggle("article-open");
-    if (span.textContent === "Close") {
-      span.textContent = "More";
-    } else span.textContent = "Close";
+    if (span.textContent === "Click to Close") {
+      span.textContent = "Click to Expand";
+    } else span.textContent = "Click to Close";
   };
   span.addEventListener("click", expandItem);
   return article;
