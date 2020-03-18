@@ -170,6 +170,34 @@ const createArticle = (
   return article;
 };
 
+const createArticleForm = () => {
+  // create elements
+  const form = document.createElement("form");
+  const makeNew = document.createElement("h3");
+  const titleLabel = document.createElement("label");
+  const titleInput = document.createElement("input");
+  const textLabel = document.createElement("label");
+  const textInput = document.createElement("textArea");
+  const button = document.createElement("button");
+  // append
+  form.append(makeNew, titleLabel, titleInput, textLabel, textInput, button);
+  // styling
+  form.classList.add("form");
+  makeNew.textContent = "Create New Article";
+  titleLabel.textContent = "Add Title:";
+  titleInput.classList.add("titleInput");
+  textLabel.textContent = "Add Text:";
+  textInput.classList.add("textInput");
+  button.textContent = "Create";
+  // event listeners
+  const addArticle = () => {
+    event.preventDefault();
+  };
+  button.addEventListener("click", addArticle);
+
+  return form;
+};
+
 const articles = document.querySelector(".articles");
 // articles.append(createArticle("title", "date", "test", "test", "test"));
 data.forEach(item => {
@@ -183,3 +211,4 @@ data.forEach(item => {
     )
   );
 });
+articles.appendChild(createArticleForm());
