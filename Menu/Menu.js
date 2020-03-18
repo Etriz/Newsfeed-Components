@@ -35,6 +35,7 @@ const createMenu = menuList => {
   // create link list from array
   menuList.forEach(item => {
     const link = document.createElement("li");
+    const a = document.createElement("a");
     link.textContent = item;
     linkBar.appendChild(link);
   });

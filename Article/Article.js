@@ -138,12 +138,14 @@ const createArticle = (
   const p2 = document.createElement("p");
   const p3 = document.createElement("p");
   const span = document.createElement("span");
+  const close = document.createElement("span");
   // append
-  article.append(title, date, p1, p2, p3, span);
+  article.append(close, title, date, p1, p2, p3, span);
   // add classes
   article.classList.add("article");
   date.classList.add("date");
   span.classList.add("expandButton");
+  close.classList.add("close");
   // add content
   title.textContent = articleTitle;
   date.textContent = articleDate;
@@ -151,7 +153,8 @@ const createArticle = (
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
   span.textContent = "Click to Expand";
-
+  close.textContent = "x";
+  // event listeners
   const expandItem = () => {
     article.classList.toggle("article-open");
     if (span.textContent === "Click to Close") {
@@ -159,6 +162,11 @@ const createArticle = (
     } else span.textContent = "Click to Close";
   };
   span.addEventListener("click", expandItem);
+  const closeArticle = () => {
+    console.log(event.target);
+    article.classList.add("read");
+  };
+  close.addEventListener("click", closeArticle);
   return article;
 };
 
