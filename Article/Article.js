@@ -163,8 +163,8 @@ const createArticle = (
   };
   span.addEventListener("click", expandItem);
   const closeArticle = () => {
-    console.log(event.target);
-    article.classList.add("read");
+    // article.classList.add("read");
+    article.remove();
   };
   close.addEventListener("click", closeArticle);
   return article;
@@ -181,7 +181,7 @@ const createArticleForm = () => {
   const button = document.createElement("button");
   // append
   form.append(makeNew, titleLabel, titleInput, textLabel, textInput, button);
-  // styling
+  // content
   form.classList.add("form");
   makeNew.textContent = "Create New Article";
   titleLabel.textContent = "Add Title:";
@@ -192,6 +192,10 @@ const createArticleForm = () => {
   // event listeners
   const addArticle = () => {
     event.preventDefault();
+    let dateNow = new Date(Date.now()).toDateString();
+    articles.insertBefore(createArticle(titleInput.value, dateNow, textInput.value), form);
+    titleInput.value = "";
+    textInput.value = "";
   };
   button.addEventListener("click", addArticle);
 
