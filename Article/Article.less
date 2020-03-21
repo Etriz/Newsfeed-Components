@@ -11,6 +11,7 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  transition: all 500ms;
 
   h2 {
     font-size: 28px;
@@ -27,6 +28,11 @@
     position: absolute;
     top: 10px;
     right: 10px;
+    color: red;
+    border: 1px solid red;
+    padding: 0px 4px;
+    text-align: center;
+    cursor: pointer;
   }
 
   .expandButton {
@@ -42,9 +48,34 @@
 }
 
 .article-open {
-  height: 400px;
+  height: auto;
 }
+.form {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 2px lightgrey;
+  padding: 0 20px 25px;
+  margin: 20px 10%;
+  position: relative;
 
-
-
-
+  display: flex;
+  max-width: 500px;
+  flex-direction: column;
+  label {
+    margin-bottom: 0.3rem;
+  }
+  input,
+  textarea {
+    margin-bottom: 0.7rem;
+    background: #fffef7;
+    outline: none;
+    border: 1px solid lightgrey;
+  }
+  textarea {
+    height: 10rem;
+  }
+  button {
+    width: 5rem;
+  }
+}
